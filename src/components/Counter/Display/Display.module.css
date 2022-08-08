@@ -1,0 +1,29 @@
+.display {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 20px;
+    width: 200px;
+    height: 200px;
+    font-size: 100px;
+    text-align: center;
+}
+.display.stop {
+    color: red;
+}
+.input {
+    background-color: greenyellow;
+    font-size: 14px;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;
+}
+
+.error {
+    background-color: #9f5252;
+    border: solid 2px red;
+    color: red;
+}

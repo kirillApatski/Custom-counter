@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, {useState} from 'react';
+import {Counter} from "./components/Counter/Counter";
+import  "./App.css"
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [minValue, setMinValue] = useState(0)
+    const [maxValue, setMaxValue] = useState(5);
+    const [displayValue, setDisplayValue] = useState(minValue)
+    const [displaySettings, setDisplaySettings] = useState(true)
+
+    const incrementDisplayValue = () => {
+        if (displayValue < maxValue) {
+            setDisplayValue(displayValue + 1)
+        }
+    }
+    const resetDisplayValue = () => {
+        setDisplayValue(minValue)
+    }
+    const openDisplaySettings = () => {
+        setDisplaySettings(!displaySettings)
+    }
+    const setSettingsValue = () => {
+        setDisplayValue(minValue)
+        setDisplaySettings(!displaySettings)
+    }
+    return (
+        <div className="counterWrapper">
+            <Counter
+                setMinValue={setMinValue}
+                setMaxValue={setMaxValue}
+                displayValue={displayValue}
+                maxValue={maxValue}
+                minValue={minValue}
+                incrementDisplayValue={incrementDisplayValue}
+                resetDisplayValue={resetDisplayValue}
+                openDisplaySettings={openDisplaySettings}
+                setSettingsValue={setSettingsValue}
+                displaySettings={displaySettings}
+            />
+        </div>
+    );
 }
 
 export default App;
